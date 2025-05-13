@@ -5,19 +5,19 @@ import numpy as np
 class Body:
     position_: np.ndarray
     speed_: np.ndarray
-    angle_: np.double
-    omega_: np.double
-    mass_: np.double
-    inmom_: np.double
+    angle_: float
+    omega_: float
+    mass_: float
+    inmom_: float
 
     def __init__(
         self,
         position: np.ndarray = np.array([0, 0]),
         speed: np.ndarray = np.array([0, 0]),
-        angle: np.double = np.double(0),
-        omega: np.double = np.double(0),
-        mass: np.double = np.double(0),
-        inmom: np.double = np.double(0),
+        angle: float = 0,
+        omega: float = 0,
+        mass: float = 0,
+        inmom: float = 0,
     ):
         self.position_ = position
         self.speed_ = speed
@@ -26,5 +26,8 @@ class Body:
         self.mass_ = mass
         self.inmom_ = inmom
 
-    def collides(self, b: Body) -> np.bool_:
+    def collides(self, b: Body) -> bool:
         raise NotImplementedError()
+
+    def collision(self, b: Body) -> None:
+        pass

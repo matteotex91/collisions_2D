@@ -3,17 +3,17 @@ import numpy as np
 
 
 class Circle(Body):
-    radius_: np.double
-    mass_: np.double
+    radius_: float
+    mass_: float
 
     def __init__(
         self,
         position: np.ndarray = np.array([0, 0]),
         speed: np.ndarray = np.array([0, 0]),
-        angle: np.double = np.double(0),
-        omega: np.double = np.double(0),
-        mass: np.double = np.double(1),
-        radius: np.double = np.double(1),
+        angle: float = 0,
+        omega: float = 0,
+        mass: float = 0,
+        radius: float = 0,
         inmom=None,
     ):
         if inmom is None:
@@ -28,10 +28,10 @@ class Circle(Body):
         )
         self.radius_ = radius
 
-    def collides(self, b: Body) -> np.bool_:
+    def collides(self, b: Body) -> bool:
         if type(b) is Circle:
             b.__class__ = Circle
-            return np.bool_(
+            return bool(
                 np.linalg.norm(self.position_ - b.position_) < self.radius_ + b.radius_
             )
         else:
