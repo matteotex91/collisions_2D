@@ -30,7 +30,7 @@ class polygon(Body):
         ct = np.cos(self.angle_)
         st = np.sin(self.angle_)
         R = np.array([[ct, st], [-st, ct]])
-        self.transformed_points.clear()
+        self.transformed_points = list()
         for p in self.points:
             self.transformed_points.append(self.position_ + np.dot(R, p))
 
